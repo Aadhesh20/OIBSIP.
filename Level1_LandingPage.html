@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tusk Clothing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #050505;
+        color: #f4efe8;
+      }
+      .font-display {
+        font-family: 'Playfair Display', serif;
+      }
+      .card:hover img {
+        transform: scale(1.04);
+      }
+      .card img {
+        transition: transform 0.35s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <a href="#" class="font-display text-2xl tracking-[0.3em]">TUSK</a>
+        <div class="flex gap-6 text-sm uppercase tracking-[0.25em] text-white/80">
+          <a href="#collection" class="transition hover:text-white">New In</a>
+          <a href="#products" class="transition hover:text-white">Shop</a>
+          <a href="#about" class="transition hover:text-white">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
+        <div class="flex flex-col justify-center">
+          <p class="mb-4 text-sm uppercase tracking-[0.4em] text-stone-400">Autumn / Winter 2026</p>
+          <h1 class="font-display text-5xl leading-tight sm:text-6xl lg:text-7xl">
+            Built for bold everyday style.
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-8 text-stone-300">
+            Discover premium outerwear, tailored essentials, and elevated basics designed for modern city life.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#products" class="rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-stone-200">Shop Collection</a>
+            <a href="#about" class="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-white/10">Explore Brand</a>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-stone-900 shadow-2xl">
+          <div class="relative aspect-[4/5] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80" alt="Signature drop fashion collection" class="h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div class="absolute inset-0 flex h-full flex-col justify-between p-6">
+              <div class="flex items-center justify-between text-sm uppercase tracking-[0.3em] text-stone-200">
+                <span>Signature Drop</span>
+                <span>01</span>
+              </div>
+              <div>
+                <p class="text-sm uppercase tracking-[0.35em] text-stone-300">New Season</p>
+                <h2 class="font-display mt-2 text-3xl sm:text-4xl">Layer sharp. Move freely.</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="readme" class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+        <div class="grid gap-8 rounded-[2rem] border border-white/10 bg-stone-900/90 p-8 md:grid-cols-[0.95fr_1.05fr] md:p-12">
+          <div class="overflow-hidden rounded-[1.5rem] border border-white/10">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80" alt="Tusk clothing brand story" class="h-full w-full object-cover" />
+          </div>
+          <div class="flex flex-col justify-center">
+            <p class="text-sm uppercase tracking-[0.35em] text-stone-400">Read Me</p>
+            <h2 class="font-display mt-3 text-3xl sm:text-4xl">Tusk is built for modern confidence.</h2>
+            <p class="mt-4 max-w-2xl text-lg leading-8 text-stone-300">
+              We create clothing that feels sharp, effortless, and timeless. From premium fabrics to everyday essentials, Tusk brings together bold style and comfort for the people who want to stand out without trying too hard.
+            </p>
+            <p class="mt-4 max-w-2xl text-lg leading-8 text-stone-300">
+              Our pieces are designed to move with your day, from city mornings to late-night plans, with a look that stays refined and unforgettable.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <span class="rounded-full border border-white/15 px-4 py-2 text-sm text-stone-300">Premium Fabrics</span>
+              <span class="rounded-full border border-white/15 px-4 py-2 text-sm text-stone-300">Minimal Design</span>
+              <span class="rounded-full border border-white/15 px-4 py-2 text-sm text-stone-300">Everyday Luxury</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="mb-8 flex items-end justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.35em] text-stone-400">Featured apparel</p>
+            <h2 class="font-display text-3xl sm:text-4xl">Clothes made to stand out.</h2>
+          </div>
+          <a href="#" class="text-sm uppercase tracking-[0.25em] text-stone-300 transition hover:text-white">View all</a>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <article class="card overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-900">
+            <div class="aspect-[3/4] overflow-hidden bg-stone-800">
+              <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80" alt="Signature jacket" class="h-full w-full object-cover" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold uppercase tracking-[0.25em]">Signature Jacket</h3>
+              <p class="mt-2 text-sm text-stone-400">Structured outerwear with a sharp silhouette.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-sm text-stone-300">$148</span>
+                <button class="text-sm uppercase tracking-[0.25em] text-white/90 hover:text-white">Add</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-900">
+            <div class="aspect-[3/4] overflow-hidden bg-stone-800">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Linen shirt" class="h-full w-full object-cover" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold uppercase tracking-[0.25em]">Linen Shirt</h3>
+              <p class="mt-2 text-sm text-stone-400">Lightweight layering with polished comfort.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-sm text-stone-300">$86</span>
+                <button class="text-sm uppercase tracking-[0.25em] text-white/90 hover:text-white">Add</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-900">
+            <div class="aspect-[3/4] overflow-hidden bg-stone-800">
+              <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80" alt="Utility trousers" class="h-full w-full object-cover" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold uppercase tracking-[0.25em]">Utility Trousers</h3>
+              <p class="mt-2 text-sm text-stone-400">Clean-cut staples with functional detailing.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-sm text-stone-300">$112</span>
+                <button class="text-sm uppercase tracking-[0.25em] text-white/90 hover:text-white">Add</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="collection" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-stone-900">
+          <div class="grid gap-8 p-8 md:grid-cols-[1.1fr_0.9fr] md:p-12">
+            <div>
+              <p class="text-sm uppercase tracking-[0.35em] text-stone-400">Limited release</p>
+              <h2 class="font-display mt-3 text-3xl sm:text-4xl">The city collection is here.</h2>
+              <p class="mt-4 max-w-xl text-lg leading-8 text-stone-300">
+                Refined staples in rich neutrals and tactile fabrics, curated for effortless dressing from dawn to night.
+              </p>
+              <a href="#" class="mt-8 inline-flex rounded-full border border-white/20 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-white/10">Shop New In</a>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[1.25rem] border border-white/10 bg-black/30 p-4">
+                <p class="text-sm uppercase tracking-[0.3em] text-stone-400">Best seller</p>
+                <p class="mt-3 text-xl font-semibold">Knit Sweater</p>
+              </div>
+              <div class="rounded-[1.25rem] border border-white/10 bg-black/30 p-4">
+                <p class="text-sm uppercase tracking-[0.3em] text-stone-400">Fresh drop</p>
+                <p class="mt-3 text-xl font-semibold">Weekend Shorts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="about" class="border-t border-white/10 bg-black/80">
+      <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-center text-sm text-stone-400 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <p>© 2026 Tusk Clothing. Crafted for everyday confidence.</p>
+        <div class="flex justify-center gap-6 uppercase tracking-[0.25em]">
+          <a href="#" class="transition hover:text-white">Instagram</a>
+          <a href="#" class="transition hover:text-white">Email</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
