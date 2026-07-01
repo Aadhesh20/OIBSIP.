@@ -1,1 +1,293 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aadhesh Khajuria — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #0B1D3A;
+      --navy2:   #122548;
+      --blue:    #1B4FD8;
+      --sky:     #3B82F6;
+      --gold:    #C9A84C;
+      --white:   #FFFFFF;
+      --offwhite:#F4F6FB;
+      --muted:   #6B7A99;
+      --border:  #D6DEEF;
+      --text:    #1A2340;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--offwhite); color: var(--text); line-height: 1.6; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); padding: 0 6vw;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .nav-name { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--white); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-name span { color: var(--gold); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-hire { background: var(--gold); color: var(--navy); padding: 8px 18px; border-radius: 6px; text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: opacity 0.2s; }
+    .nav-hire:hover { opacity: 0.88; }
+    .hero {
+      background: var(--navy); padding: 120px 6vw 80px;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto;
+    }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+    .hero-tag::before { content: ''; width: 28px; height: 2px; background: var(--gold); }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 5vw, 4rem); color: var(--white); line-height: 1.1; margin-bottom: 6px; }
+    .hero h1 span { color: var(--gold); }
+    .hero-role { font-size: 1rem; color: rgba(255,255,255,0.55); margin-bottom: 22px; }
+    .hero p { color: rgba(255,255,255,0.7); font-size: 0.97rem; max-width: 480px; margin-bottom: 36px; line-height: 1.75; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-gold { background: var(--gold); color: var(--navy); padding: 12px 26px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: opacity 0.2s; }
+    .btn-gold:hover { opacity: 0.88; }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,0.25); color: var(--white); padding: 12px 26px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: border-color 0.2s; }
+    .btn-outline:hover { border-color: var(--white); }
+    .hero-avatar { width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--sky)); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--white); border: 4px solid var(--gold); flex-shrink: 0; }
+    .hero-stats { background: var(--navy2); border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 6vw; }
+    .hero-stats-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 48px; flex-wrap: wrap; }
+    .hstat { display: flex; flex-direction: column; gap: 2px; }
+    .hstat-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--gold); }
+    .hstat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); font-weight: 500; }
+    .section { padding: 72px 6vw; max-width: 1100px; margin: 0 auto; }
+    .sec-eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue); margin-bottom: 8px; }
+    .sec-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 3vw, 2.2rem); color: var(--navy); margin-bottom: 10px; }
+    .sec-sub { color: var(--muted); font-size: 0.95rem; max-width: 500px; margin-bottom: 44px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-text p { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; line-height: 1.8; }
+    .about-text p strong { color: var(--text); }
+    .info-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .info-item { display: flex; gap: 12px; align-items: center; font-size: 0.88rem; }
+    .info-icon { color: var(--blue); font-size: 1rem; width: 20px; }
+    .info-item span { color: var(--muted); }
+    .info-item strong { color: var(--text); }
+    .cert-list { display: flex; flex-direction: column; gap: 14px; }
+    .cert-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 10px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px; }
+    .cert-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+    .cert-card p { font-size: 0.8rem; color: var(--muted); }
+    .skills-section { background: var(--navy); padding: 72px 6vw; }
+    .skills-inner { max-width: 1100px; margin: 0 auto; }
+    .skills-section .sec-eyebrow { color: var(--gold); }
+    .skills-section .sec-title { color: var(--white); }
+    .skills-section .sec-sub { color: rgba(255,255,255,0.5); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .skill-cat { background: var(--navy2); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 22px; }
+    .skill-cat h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 14px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); padding: 4px 10px; border-radius: 4px; font-size: 0.78rem; font-weight: 500; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+    .proj-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px; transition: box-shadow 0.2s, transform 0.2s; }
+    .proj-card:hover { box-shadow: 0 8px 28px rgba(27,79,216,0.1); transform: translateY(-3px); }
+    .proj-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); }
+    .proj-card h3 { font-size: 1rem; font-weight: 600; color: var(--text); }
+    .proj-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; flex: 1; }
+    .proj-techs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-tech { background: var(--offwhite); border: 1px solid var(--border); color: var(--muted); padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; }
+    .proj-link { color: var(--blue); font-size: 0.82rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+    .proj-link:hover { text-decoration: underline; }
+    .edu-section { background: #EEF2FB; padding: 72px 6vw; }
+    .edu-inner { max-width: 1100px; margin: 0 auto; }
+    .edu-timeline { display: flex; flex-direction: column; gap: 0; }
+    .edu-item { display: grid; grid-template-columns: 140px 1fr; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-year { font-size: 0.82rem; color: var(--muted); font-weight: 600; padding-top: 4px; }
+    .edu-content h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .edu-content p { font-size: 0.85rem; color: var(--muted); }
+    .edu-content .badge { display: inline-block; margin-top: 8px; background: var(--blue); color: var(--white); padding: 2px 10px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }
+    .contact-box { background: var(--navy); border-radius: 20px; padding: 56px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 32px; }
+    .contact-box h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3vw, 2rem); color: var(--white); margin-bottom: 8px; }
+    .contact-box p { color: rgba(255,255,255,0.6); font-size: 0.92rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+    .contact-link { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.75); font-size: 0.88rem; text-decoration: none; transition: color 0.2s; }
+    .contact-link:hover { color: var(--gold); }
+    .contact-link span { font-size: 1.1rem; }
+    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 24px 6vw; text-align: center; }
+    footer p { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-avatar { width: 120px; height: 120px; font-size: 2.8rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+      .edu-item { grid-template-columns: 1fr; gap: 8px; }
+      .contact-links { align-items: flex-start; }
+    }
+    @media (max-width: 540px) {
+      .hero { padding: 100px 5vw 60px; }
+      .contact-box { padding: 36px 24px; }
+      .hero-stats-inner { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-name">Aadhesh <span>Khajuria</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:aadheshkhajuria10@gmail.com" class="nav-hire">Hire Me</a>
+</nav>
+<div style="background: var(--navy);">
+  <div class="hero">
+    <div>
+      <div class="hero-tag">Electronics &amp; Web Developer</div>
+      <h1>Aadhesh <span>Khajuria</span></h1>
+      <div class="hero-role">B.Tech ECE · GCET Jammu</div>
+      <p>Engineering student with hands-on experience in Embedded Systems, IoT, and AI-based hardware — now building full-stack web solutions. Bridging hardware and software, one project at a time.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-gold">View My Work</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-avatar">AK</div>
+  </div>
+</div>
+<div class="hero-stats">
+  <div class="hero-stats-inner">
+    <div class="hstat"><div class="hstat-num">6th</div><div class="hstat-label">Semester, B.Tech ECE</div></div>
+    <div class="hstat"><div class="hstat-num">4+</div><div class="hstat-label">NPTEL Certifications</div></div>
+    <div class="hstat"><div class="hstat-num">5+</div><div class="hstat-label">Projects Completed</div></div>
+    <div class="hstat"><div class="hstat-num">1</div><div class="hstat-label">Drone &amp; 3D Design Bootcamp, IIT Jammu</div></div>
+  </div>
+</div>
+<section id="about">
+  <div class="section">
+    <div class="sec-eyebrow">About Me</div>
+    <div class="sec-title">Who I Am</div>
+    <p class="sec-sub">Electronics engineer and web developer — building things that matter.</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>B.Tech Electronics &amp; Communication Engineering</strong> student in my 6th semester at Government College of Engineering &amp; Technology (GCET), Jammu. My core focus is Embedded Systems, IoT, and AI-based hardware — with hands-on experience using <strong>ESP32, Arduino, and Raspberry Pi</strong>.</p>
+        <p>I led a 5-member team on an <strong>EEG-based Brain-Computer Interface</strong> project for home appliance control, and completed a hands-on bootcamp on <strong>Drone Making and 3D Designing</strong> at IIT Jammu, where I worked on frame design, flight assembly, and 3D-modeled components.</p>
+        <p>Currently completing the <strong>AICTE Oasis Infobyte Web Development Internship</strong>, expanding my skills into full-stack development.</p>
+        <ul class="info-list">
+          <li class="info-item"><span class="info-icon">📍</span><span>Jammu, Jammu &amp; Kashmir, India</span></li>
+          <li class="info-item"><span class="info-icon">🎓</span><span>GCET Jammu — B.Tech ECE (2022–2026)</span></li>
+          <li class="info-item"><span class="info-icon">🛠️</span><span>Bootcamp — Drone Making &amp; 3D Designing, <strong>IIT Jammu</strong></span></li>
+          <li class="info-item"><span class="info-icon">📧</span><span>aadheshkhajuria10@gmail.com</span></li>
+          <li class="info-item"><span class="info-icon">🔗</span><span><a href="https://lnkd.in/gmzHuHPD" style="color:inherit;text-decoration:none;">GitHub: lnkd.in/gmzHuHPD</a></span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="sec-eyebrow" style="margin-bottom:16px;">Certifications</div>
+        <div class="cert-list">
+          <div class="cert-card"><h4>Electronic System Design</h4><p>NPTEL Certification · IIT</p></div>
+          <div class="cert-card"><h4>Digital System Design</h4><p>NPTEL Certification · IIT</p></div>
+          <div class="cert-card"><h4>Transducers &amp; Instrumentation</h4><p>NPTEL Certification · IIT</p></div>
+          <div class="cert-card"><h4>Human-Computer Interaction</h4><p>NPTEL Certification · IIT</p></div>
+          <div class="cert-card"><h4>PCB Design</h4><p>Professional Certification</p></div>
+          <div class="cert-card"><h4>Drone Making &amp; 3D Designing</h4><p>Bootcamp · IIT Jammu</p></div>
+          <div class="cert-card"><h4>Web Development &amp; Designing</h4><p>AICTE Oasis Infobyte Internship · 2026</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills" class="skills-section">
+  <div class="skills-inner">
+    <div class="sec-eyebrow">Technical Skills</div>
+    <div class="sec-title" style="color:#fff;">What I Work With</div>
+    <p class="sec-sub">Hardware to software — a full spectrum of technical tools.</p>
+    <div class="skills-grid">
+      <div class="skill-cat"><h4>Hardware &amp; IoT</h4><div class="skill-tags"><span class="skill-tag">ESP32</span><span class="skill-tag">Arduino</span><span class="skill-tag">Raspberry Pi</span><span class="skill-tag">PCB Design</span><span class="skill-tag">LVDT</span><span class="skill-tag">Sensors</span></div></div>
+      <div class="skill-cat"><h4>Drone &amp; 3D Design</h4><div class="skill-tags"><span class="skill-tag">Drone Assembly</span><span class="skill-tag">Flight Controllers</span><span class="skill-tag">3D Modeling</span><span class="skill-tag">3D Printing</span></div></div>
+      <div class="skill-cat"><h4>Programming</h4><div class="skill-tags"><span class="skill-tag">C/C++</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span></div></div>
+      <div class="skill-cat"><h4>Web Development</h4><div class="skill-tags"><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">MongoDB</span></div></div>
+      <div class="skill-cat"><h4>Core Subjects</h4><div class="skill-tags"><span class="skill-tag">Embedded Systems</span><span class="skill-tag">DSP</span><span class="skill-tag">EMFT</span><span class="skill-tag">Microwave</span><span class="skill-tag">Wireless Comm</span></div></div>
+      <div class="skill-cat"><h4>Tools</h4><div class="skill-tags"><span class="skill-tag">Git &amp; GitHub</span><span class="skill-tag">VS Code</span><span class="skill-tag">Proteus</span><span class="skill-tag">MATLAB</span><span class="skill-tag">KiCad</span></div></div>
+      <div class="skill-cat"><h4>Soft Skills</h4><div class="skill-tags"><span class="skill-tag">Team Leadership</span><span class="skill-tag">Problem Solving</span><span class="skill-tag">Communication</span></div></div>
+    </div>
+  </div>
+</section>
+<section id="projects">
+  <div class="section">
+    <div class="sec-eyebrow">Projects</div>
+    <div class="sec-title">What I've Built</div>
+    <p class="sec-sub">Hardware systems, web apps, and everything in between.</p>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <div class="proj-badge">🧠 Hardware · AI</div>
+        <h3>EEG-Based Brain-Computer Interface</h3>
+        <p>Led a 5-member team to build a BCI system for home appliance control using ESP32, AD620 amplifier, IIR Butterworth filters, and brainwave band classification.</p>
+        <div class="proj-techs"><span class="proj-tech">ESP32</span><span class="proj-tech">AD620</span><span class="proj-tech">IIR Filters</span><span class="proj-tech">C++</span><span class="proj-tech">PCB</span></div>
+        <a href="#" class="proj-link">View Project →</a>
+      </div>
+      <div class="proj-card">
+        <div class="proj-badge">🚁 Drone · 3D Design</div>
+        <h3>Custom Quadcopter Build</h3>
+        <p>Designed and assembled a quadcopter frame from scratch during the IIT Jammu bootcamp — 3D-modeled the frame components, mounted the flight controller, and tuned motor calibration.</p>
+        <div class="proj-techs"><span class="proj-tech">3D Modeling</span><span class="proj-tech">3D Printing</span><span class="proj-tech">Flight Controller</span><span class="proj-tech">Motor Tuning</span></div>
+        <a href="#" class="proj-link">View Project →</a>
+      </div>
+      <div class="proj-card">
+        <div class="proj-badge">📡 IoT · Embedded</div>
+        <h3>Smart IoT Applications</h3>
+        <p>Designed and implemented IoT solutions covering smart metering, e-health monitoring, city automation, and home automation systems using ESP32 and Raspberry Pi.</p>
+        <div class="proj-techs"><span class="proj-tech">ESP32</span><span class="proj-tech">Raspberry Pi</span><span class="proj-tech">Python</span><span class="proj-tech">MQTT</span></div>
+        <a href="#" class="proj-link">View Project →</a>
+      </div>
+      <div class="proj-card">
+        <div class="proj-badge">🍕 Full Stack</div>
+        <h3>Pizza Delivery Application</h3>
+        <p>Full-stack web app with admin and user dashboards, order tracking, inventory management, and Razorpay payment integration.</p>
+        <div class="proj-techs"><span class="proj-tech">React</span><span class="proj-tech">Node.js</span><span class="proj-tech">MongoDB</span><span class="proj-tech">Razorpay</span></div>
+        <a href="#" class="proj-link">Coming Soon →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="education" class="edu-section">
+  <div class="edu-inner">
+    <div class="sec-eyebrow">Education</div>
+    <div class="sec-title">Academic Background</div>
+    <p class="sec-sub" style="margin-bottom:40px;">Building a strong foundation in engineering and technology.</p>
+    <div class="edu-timeline">
+      <div class="edu-item">
+        <div class="edu-year">2022 — 2026</div>
+        <div class="edu-content"><h3>B.Tech — Electronics &amp; Communication Engineering</h3><p>Government College of Engineering &amp; Technology (GCET), Jammu</p><p>Focus: Embedded Systems, IoT, DSP, Microwave Theory, Wireless Communication</p><span class="badge">Currently in 6th Semester</span></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2026</div>
+        <div class="edu-content"><h3>Web Development &amp; Designing Internship</h3><p>AICTE Oasis Infobyte — June 2026 Batch</p><p>Building full-stack projects: Landing Page, Portfolio, Calculator, To-Do App, Login Auth, Pizza Delivery App</p><span class="badge">In Progress</span></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2025</div>
+        <div class="edu-content"><h3>Bootcamp — Drone Making &amp; 3D Designing</h3><p>Indian Institute of Technology (IIT), Jammu</p><p>Hands-on training in drone frame design, assembly, flight controller setup, and 3D modeling/printing of components.</p><span class="badge">Completed</span></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2023 — 2026</div>
+        <div class="edu-content"><h3>NPTEL Certifications (4)</h3><p>Electronic System Design · Digital System Design · Transducers &amp; Instrumentation · Human-Computer Interaction</p><p>Indian Institute of Technology (IIT)</p><span class="badge">Certified</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="section">
+    <div class="contact-box">
+      <div>
+        <h2>Let's Build Something</h2>
+        <p>Open to internships, freelance builds, and hardware-meets-web projects.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:aadheshkhajuria10@gmail.com" class="contact-link"><span>📧</span>aadheshkhajuria10@gmail.com</a>
+        <a href="https://lnkd.in/gmzHuHPD" class="contact-link"><span>🔗</span>GitHub: lnkd.in/gmzHuHPD</a>
+        <a href="https://www.linkedin.com/in/aadhesh-khajuria-1951aa291/" class="contact-link"><span>💼</span>LinkedIn: linkedin.com/in/aadhesh-khajuria-1951aa291</a>
+        <a href="#" class="contact-link" download><span>📄</span>Download Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>© 2026 Aadhesh Khajuria. All rights reserved.</p>
+</footer>
+</body>
+</html>
